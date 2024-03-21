@@ -64,37 +64,37 @@
 
 <div class="container">
   <div class="image-container">
-    <a href="https://www.google.com" target="_blank" class="container bottom-image">
-  <div class="image-container">
-    <a href="https://www.yahoo.com.tw" target="_blank" id="yahoo-link">
+    <a href="https://www.google.com" target="_blank" id="google-link">
       <img src="img/1.jpg" alt="Image 1">
     </a>
-    <a href="https://www.yahoo.com.tw" target="_blank" id="yahoo-link">
+    <a href="https://www.google.com" target="_blank" id="google-link">
       <img src="img/2.png" alt="Image 2">
     </a>
-    <a href="https://www.yahoo.com.tw" target="_blank" id="yahoo-link">
+    <a href="https://www.google.com" target="_blank" id="google-link">
       <img src="img/3.png" alt="Image 3">
     </a>
   </div>
 </div>
 
-<a href="https://www.google.com" target="_blank" id="google-link">
+<a href="https://www.baidu.com" target="_blank" id="baidu-link">
   <img class="bottom-image" src="img/Row%20Buttons.png" alt="Image 4">
 </a>
 
 <script>
-  // Get the container element
-  var container = document.querySelector('.container');
+  // Get the bottom image element
+  var bottomImage = document.querySelector('.bottom-image');
 
-  // Add click event listener to the container
-  container.addEventListener('click', function(event) {
-    // Check if the click occurred on the left half of the container
-    if (event.clientX < container.clientWidth / 2) {
-      // Redirect to Yahoo
-      window.location.href = "https://www.yahoo.com.tw";
-    } else {
-      // Redirect to Google
+  // Add click event listener to the bottom image
+  bottomImage.addEventListener('click', function(event) {
+    // Get the width of the window
+    var windowWidth = window.innerWidth;
+    // Check if the click occurred on the left half of the window
+    if (event.clientX < windowWidth / 2) {
+      // Redirect to Google (跳转到谷歌)
       window.location.href = "https://www.google.com";
+    } else {
+      // Redirect to Baidu (跳转到百度)
+      window.location.href = "https://www.baidu.com";
     }
   });
 </script>
