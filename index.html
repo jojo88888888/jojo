@@ -23,7 +23,7 @@
   .image-container {
     display: flex;
     flex-direction: column;
-    gap: 0; /* Set gap to 0 to remove spacing between images */
+    gap: 0; /* 设置 gap 为 0 来去除图片之间的间距 */
   }
   
   .image-container img {
@@ -64,38 +64,46 @@
 
 <div class="container">
   <div class="image-container">
-    <a href="https://www.google.com" target="_blank" id="google-link">
+    <a href="" target="_blank">
       <img src="img/1.jpg" alt="Image 1">
     </a>
-    <a href="https://www.google.com" target="_blank" id="google-link">
+    <a href="" target="_blank">
       <img src="img/2.png" alt="Image 2">
     </a>
-    <a href="https://www.google.com" target="_blank" id="google-link">
+    <a href="" target="_blank">
       <img src="img/3.png" alt="Image 3">
+    </a>
+    <a href="" target="_blank">
+      <img src="img/4.png" alt="Image 4">
     </a>
   </div>
 </div>
 
-<a href="https://www.baidu.com" target="_blank" id="baidu-link">
-  <img class="bottom-image" src="img/Row%20Buttons.png" alt="Image 4">
-</a>
+<!-- 取消底部图片链接的默认点击行为 -->
+<div id="bottom-image">
+  <img class="bottom-image" src="img/Buttons.png" alt="Image 5">
+</div>
 
 <script>
-  // Get the bottom image element
-  var bottomImage = document.querySelector('.bottom-image');
+  // 获取底部图片元素
+  var bottomImage = document.getElementById('bottom-image');
 
-  // Add click event listener to the bottom image
+  // 为底部图片添加点击事件监听器
   bottomImage.addEventListener('click', function(event) {
-    // Get the width of the window
-    var windowWidth = window.innerWidth;
-    // Check if the click occurred on the left half of the window
-    if (event.clientX < windowWidth / 2) {
-      // Redirect to Google (跳转到谷歌)
-      window.location.href = "https://www.google.com";
+    // 获取底部图片的宽度
+    var imageWidth = bottomImage.clientWidth;
+    // 计算点击位置相对于图片的位置
+    var clickPosition = event.clientX - bottomImage.getBoundingClientRect().left;
+    // 检查点击是否发生在图片的左半边
+    if (clickPosition < imageWidth / 2) {
+      // 在新标签页中打开谷歌
+      window.open("https://www.google.com", "_blank");
     } else {
-      // Redirect to Baidu (跳转到百度)
-      window.location.href = "https://www.baidu.com";
+      // 在新标签页中打开百度
+      window.open("https://www.baidu.com", "_blank");
     }
+    // 取消默认点击行为
+    event.preventDefault();
   });
 </script>
 
