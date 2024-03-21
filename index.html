@@ -36,6 +36,12 @@
   }
   
   .bottom-image {
+    width: 100%; /* 设置宽度为100% */
+    height: auto; /* 根据宽度自适应高度 */
+    display: block;
+    margin: 0 auto;
+    max-width: 300px; /* 设置最大宽度 */
+    height: auto; /* 根据宽度自适应高度 */
     position: fixed; /* 设置固定定位 */
     bottom: 0; /* 悬浮在底部 */
     left: 50%; /* 水平居中 */
@@ -46,6 +52,9 @@
   /* 媒体查询，适应小屏幕设备 */
   @media only screen and (max-width: 600px) {
     .image-container img {
+      max-width: 100%; /* 在小屏幕上，将最大宽度设置为100% */
+    }
+    .bottom-image {
       max-width: 100%; /* 在小屏幕上，将最大宽度设置为100% */
     }
   }
@@ -64,11 +73,12 @@
     <a href="https://www.yahoo.com.tw" target="_blank" id="yahoo-link">
       <img src="img/3.png" alt="Image 3">
     </a>
-    <a href="https://www.google.com" target="_blank" id="google-link">
-      <img class="jojo/bottom-image" src="img/Row%20Buttons.png" alt="Image 4">
-    </a>
   </div>
 </div>
+
+<a href="https://www.google.com" target="_blank" id="google-link">
+  <img class="bottom-image" src="img/Row%20Buttons.png" alt="Image 4">
+</a>
 
 <script>
   // Get the container element
