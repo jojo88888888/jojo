@@ -23,39 +23,38 @@
   .image-container {
     display: flex;
     flex-direction: column;
-    gap: 0; /* 设置 gap 为 0 来去除图片之间的间距 */
+    gap: 0; /* Set gap to 0 to remove spacing between images */
   }
   
   .image-container img {
-    width: 100%; /* 设置宽度为100% */
-    height: auto; /* 根据宽度自适应高度 */
+    width: 100%;
+    height: auto;
     display: block;
     margin: 0 auto;
-    max-width: 300px; /* 设置最大宽度 */
-    height: auto; /* 根据宽度自适应高度 */
+    max-width: 300px;
+    height: auto;
   }
   
   .bottom-image {
-    width: 100%; /* 设置宽度为100% */
-    height: auto; /* 根据宽度自适应高度 */
+    width: 100%;
+    height: auto;
     display: block;
     margin: 0 auto;
-    max-width: 300px; /* 设置最大宽度 */
-    height: auto; /* 根据宽度自适应高度 */
-    position: fixed; /* 设置固定定位 */
-    bottom: 0; /* 悬浮在底部 */
-    left: 50%; /* 水平居中 */
-    transform: translateX(-50%); /* 调整位置至水平居中 */
-    z-index: 999; /* 设置层级，确保在最前面 */
+    max-width: 300px;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
   }
 
-  /* 媒体查询，适应小屏幕设备 */
   @media only screen and (max-width: 600px) {
     .image-container img {
-      max-width: 100%; /* 在小屏幕上，将最大宽度设置为100% */
+      max-width: 100%;
     }
     .bottom-image {
-      max-width: 100%; /* 在小屏幕上，将最大宽度设置为100% */
+      max-width: 100%;
     }
   }
 </style>
@@ -64,46 +63,32 @@
 
 <div class="container">
   <div class="image-container">
-    <a href="" target="_blank">
+    <a href="" target="_blank" id="google-link-1">
       <img src="img/1.jpg" alt="Image 1">
     </a>
-    <a href="" target="_blank">
+    <a href="" target="_blank" id="google-link-2">
       <img src="img/2.png" alt="Image 2">
     </a>
-    <a href="" target="_blank">
+    <a href="" target="_blank" id="google-link-3">
       <img src="img/3.png" alt="Image 3">
-    </a>
-    <a href="" target="_blank">
-      <img src="img/4.png" alt="Image 4">
     </a>
   </div>
 </div>
 
-<!-- 取消底部图片链接的默认点击行为 -->
-<div id="bottom-image">
-  <img class="bottom-image" src="img/Row Buttons.png" alt="Image 5">
-</div>
+<a href="" target="_blank" id="baidu-link">
+  <img class="bottom-image" src="img/Row Buttons.png" alt="Image 4">
+</a>
 
 <script>
-  // 获取底部图片元素
-  var bottomImage = document.getElementById('bottom-image');
+  var bottomImage = document.querySelector('.bottom-image');
 
-  // 为底部图片添加点击事件监听器
   bottomImage.addEventListener('click', function(event) {
-    // 获取底部图片的宽度
-    var imageWidth = bottomImage.clientWidth;
-    // 计算点击位置相对于图片的位置
-    var clickPosition = event.clientX - bottomImage.getBoundingClientRect().left;
-    // 检查点击是否发生在图片的左半边
-    if (clickPosition < imageWidth / 2) {
-      // 在新标签页中打开谷歌
-      window.open("https://www.google.com", "_blank");
+    var windowWidth = window.innerWidth;
+    if (event.clientX < windowWidth / 2) {
+      window.location.href = "https://www.google.com";
     } else {
-      // 在新标签页中打开百度
-      window.open("https://www.baidu.com", "_blank");
+      window.location.href = "https://www.baidu.com";
     }
-    // 取消默认点击行为
-    event.preventDefault();
   });
 </script>
 
