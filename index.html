@@ -86,9 +86,9 @@
     event.preventDefault();
     var windowWidth = window.innerWidth;
     if (event.clientX < windowWidth / 2) {
-      window.location.href = "https://www.google.com";
+      window.open("https://www.google.com", "_blank");
     } else {
-      window.location.href = "https://www.baidu.com";
+      window.open("https://www.baidu.com", "_blank");
     }
   });
 </script>
