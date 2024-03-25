@@ -75,25 +75,21 @@
   </div>
 </div>
 
-<a href="javascript:void(0);" id="bottom-image-link">
+<a href="https://www.baidu.com" target="_blank" id="baidu-link">
   <img class="bottom-image" src="img/Row Buttons.png" alt="Image 4">
 </a>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var bottomImageLink = document.getElementById('bottom-image-link');
+  var bottomImage = document.querySelector('.bottom-image');
 
-    bottomImageLink.addEventListener('click', function(event) {
-      var x = event.clientX - this.getBoundingClientRect().left;
-      var width = this.offsetWidth;
-      var halfWidth = width / 2;
-
-      if (x < halfWidth) {
-        window.open("https://www.yahoo.com", "_blank");
-      } else {
-        window.open("https://www.baidu.com", "_blank");
-      }
-    });
+  bottomImage.addEventListener('click', function(event) {
+    event.preventDefault();
+    var windowWidth = window.innerWidth;
+    if (event.clientX < windowWidth / 2) {
+      window.open("https://www.google.com", "_blank");
+    } else {
+      window.open("https://www.baidu.com", "_blank");
+    }
   });
 </script>
 
