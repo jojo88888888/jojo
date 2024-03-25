@@ -36,17 +36,25 @@
   }
   
   .bottom-image {
-    width: 100%;
+    width: 50%;
     height: auto;
     display: block;
     margin: 0 auto;
-    max-width: 300px;
+    max-width: 150px;
     height: auto;
     position: fixed;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 999;
+  }
+
+  .bottom-image.left {
+    left: 0;
+    transform: translateX(0%);
+  }
+
+  .bottom-image.right {
+    right: 0;
+    transform: translateX(0%);
   }
 
   @media only screen and (max-width: 600px) {
@@ -75,28 +83,31 @@
   </div>
 </div>
 
-<a href="https://www.baidu.com" target="_blank" id="baidu-link">
-  <img class="bottom-image" src="img/Row Buttons.png" alt="Image 4">
-</a>
+<div class="bottom-image left" onclick="openGoogle()">
+  <img src="img/LeftButton.png" alt="Left Button">
+</div>
+<div class="bottom-image right" onclick="openBaidu()">
+  <img src="img/RightButton.png" alt="Right Button">
+</div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var bottomImage = document.querySelector('.bottom-image');
+  function openGoogle() {
+    var newWindow = window.open("https://www.google.com", "_blank");
+    if (newWindow) {
+      newWindow.focus();
+    } else {
+      alert("Please allow pop-ups for this website to open Google in a new window.");
+    }
+  }
 
-    bottomImage.addEventListener('click', function(event) {
-      var x = event.clientX - bottomImage.getBoundingClientRect().left;
-      var width = bottomImage.offsetWidth;
-      var halfWidth = width / 2;
-
-      if (x < halfWidth) {
-        // 如果点击的位置在左半边
-        window.open("https://www.yahoo.com", "_blank"); // 在新窗口中打开雅虎链接
-      } else {
-        // 如果点击的位置在右半边
-        window.open("https://www.baidu.com", "_blank"); // 在新窗口中打开百度链接
-      }
-    });
-  });
+  function openBaidu() {
+    var newWindow = window.open("https://www.baidu.com", "_blank");
+    if (newWindow) {
+      newWindow.focus();
+    } else {
+      alert("Please allow pop-ups for this website to open Baidu in a new window.");
+    }
+  }
 </script>
 
 </body>
