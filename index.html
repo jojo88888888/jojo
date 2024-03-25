@@ -36,25 +36,17 @@
   }
   
   .bottom-image {
-    width: 50%;
+    width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
-    max-width: 150px;
+    max-width: 300px;
     height: auto;
     position: fixed;
     bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 999;
-  }
-
-  .bottom-image.left {
-    left: 0;
-    transform: translateX(0%);
-  }
-
-  .bottom-image.right {
-    right: 0;
-    transform: translateX(0%);
   }
 
   @media only screen and (max-width: 600px) {
@@ -83,31 +75,26 @@
   </div>
 </div>
 
-<div class="bottom-image left" onclick="openGoogle()">
-  <img src="img/LeftButton.png" alt="Left Button">
-</div>
-<div class="bottom-image right" onclick="openBaidu()">
-  <img src="img/RightButton.png" alt="Right Button">
-</div>
+<a href="javascript:void(0);" id="bottom-image-link">
+  <img class="bottom-image" src="img/Row Buttons.png" alt="Image 4">
+</a>
 
 <script>
-  function openGoogle() {
-    var newWindow = window.open("https://www.google.com", "_blank");
-    if (newWindow) {
-      newWindow.focus();
-    } else {
-      alert("Please allow pop-ups for this website to open Google in a new window.");
-    }
-  }
+  document.addEventListener('DOMContentLoaded', function() {
+    var bottomImageLink = document.getElementById('bottom-image-link');
 
-  function openBaidu() {
-    var newWindow = window.open("https://www.baidu.com", "_blank");
-    if (newWindow) {
-      newWindow.focus();
-    } else {
-      alert("Please allow pop-ups for this website to open Baidu in a new window.");
-    }
-  }
+    bottomImageLink.addEventListener('click', function(event) {
+      var x = event.clientX - this.getBoundingClientRect().left;
+      var width = this.offsetWidth;
+      var halfWidth = width / 2;
+
+      if (x < halfWidth) {
+        window.open("https://www.yahoo.com", "_blank");
+      } else {
+        window.open("https://www.baidu.com", "_blank");
+      }
+    });
+  });
 </script>
 
 </body>
