@@ -79,5 +79,25 @@
   <img class="bottom-image" src="img/Row Buttons.png" alt="Image 4">
 </a>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var bottomImage = document.querySelector('.bottom-image');
+
+    bottomImage.addEventListener('click', function(event) {
+      var x = event.clientX - bottomImage.getBoundingClientRect().left;
+      var width = bottomImage.offsetWidth;
+      var halfWidth = width / 2;
+
+      if (x < halfWidth) {
+        // 如果点击的位置在左半边
+        window.open("https://www.yahoo.com", "_blank"); // 在新窗口中打开雅虎链接
+      } else {
+        // 如果点击的位置在右半边
+        window.open("https://www.baidu.com", "_blank"); // 在新窗口中打开百度链接
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
