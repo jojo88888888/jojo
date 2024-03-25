@@ -92,10 +92,10 @@
 
       if (x < halfWidth) {
         // 如果点击的位置在左半边
-        window.open("https://www.yahoo.com", "_blank"); // 在新窗口中打开雅虎链接
+        window.location.href = "https://www.yahoo.com"; // 在当前窗口中跳转至雅虎链接
       } else {
         // 如果点击的位置在右半边
-        window.location.href = "https://www.baidu.com"; // 直接在当前窗口中跳转至百度链接
+        window.location.href = "https://www.baidu.com"; // 在当前窗口中跳转至百度链接
       }
     });
   });
